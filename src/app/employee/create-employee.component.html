@@ -138,17 +138,14 @@
       </div>
 
       <!--Group password & password confirmation-->
-      <div ngModelGroup="passwordsControlsGroup" [class.has-error]="passwordConfirmControl.touched &&  
-                                                                    passwordConfirmControl.errors?.dontMatches &&
-                                                                    !passwordConfirmControl.errors?.required"
-                                                [class.has-success]="passwordControl.valid && passwordControl.touched && 
-                                                                     passwordConfirmControl.valid && 
-                                                                     passwordConfirmControl.touched">
+      <div ngModelGroup="passwordsControlsGroup" appComparMatching #passwordsControlsGroup= "ngModelGroup" 
+                                                [class.has-error]="passwordsControlsGroup.errors?.dontMatches && passwordControl.touched && passwordConfirmControl.touched"
+                                                [class.has-success]="passwordsControlsGroup.valid ">
         <!--password control-->
         <div class="form-group" [class.has-error]="passwordControl.touched && passwordControl.invalid">
           <label for="password" class="control-label">Password</label>
           <input type="text" class="form-control" id="password" name="passwordName" 
-                [(ngModel)]="employee.password" (input) = "passwordConfirmControl.control.updateValueAndValidity()"
+                [(ngModel)]="employee.password" 
                 #passwordControl="ngModel"  required />
           <span class="help-block" *ngIf="passwordControl.touched && passwordControl.errors?.required">
             password is required
@@ -159,13 +156,12 @@
         <div class="form-group" [class.has-error]="passwordConfirmControl.touched && passwordConfirmControl.invalid">
           <label for="passwordConfirm" class="control-label">Password confirmation</label>
           <input type="text" id="passwordConfirm" class="form-control" name="passwordConfirm"
-            [(ngModel)]="employee.passwordConfirm" #passwordConfirmControl="ngModel" required
-            appComparMatching="passwordName" />
+            [(ngModel)]="employee.passwordConfirm" #passwordConfirmControl="ngModel" required />
           <span class="help-block" *ngIf="passwordConfirmControl.touched && passwordConfirmControl.errors?.required">
             password confirmation is required
           </span>
           <span class="help-block"
-            *ngIf="passwordConfirmControl.touched && passwordConfirmControl.errors?.dontMatches && !passwordConfirmControl.errors?.required">
+            *ngIf="passwordsControlsGroup.errors?.dontMatches">
             passwords does not matches
           </span>
         </div>
