@@ -1,4 +1,4 @@
-<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+<form #employeeForm="ngForm" (ngSubmit)="saveEmployee()">
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title">Create Employee</h3>
@@ -137,32 +137,32 @@
           Preview</button>
       </div>
 
-      <!--Group password & password confirmation-->
-      <div ngModelGroup="passwordsControlsGroup" appComparMatching #passwordsControlsGroup= "ngModelGroup" 
-                                                [class.has-error]="passwordsControlsGroup.errors?.dontMatches && passwordControl.touched && passwordConfirmControl.touched"
-                                                [class.has-success]="passwordsControlsGroup.valid ">
-        <!--password control-->
-        <div class="form-group" [class.has-error]="passwordControl.touched && passwordControl.invalid">
-          <label for="password" class="control-label">Password</label>
-          <input type="text" class="form-control" id="password" name="passwordName" 
-                [(ngModel)]="employee.password" 
-                #passwordControl="ngModel"  required />
-          <span class="help-block" *ngIf="passwordControl.touched && passwordControl.errors?.required">
-            password is required
+      <!--Group Employee code & code confirmation-->
+      <div ngModelGroup="codesControlsGroup" appComparMatching #codesControlsGroup= "ngModelGroup" 
+                                                [class.has-error]="codesControlsGroup.errors?.dontMatches && codeControl.touched && codeConfirmControl.touched"
+                                                [class.has-success]="codesControlsGroup.valid ">
+        <!--employeeCode control-->
+        <div class="form-group" [class.has-error]="codeControl.touched && codeControl.invalid">
+          <label for="code" class="control-label">Employee Code</label>
+          <input type="text" class="form-control" id="code" name="codeName" 
+                [(ngModel)]="employee.code" 
+                #codeControl="ngModel"  required />
+          <span class="help-block" *ngIf="codeControl.touched && codeControl.errors?.required">
+            Employee code is required
           </span>
         </div>
 
-        <!--password confirm control-->
-        <div class="form-group" [class.has-error]="passwordConfirmControl.touched && passwordConfirmControl.invalid">
-          <label for="passwordConfirm" class="control-label">Password confirmation</label>
-          <input type="text" id="passwordConfirm" class="form-control" name="passwordConfirm"
-            [(ngModel)]="employee.passwordConfirm" #passwordConfirmControl="ngModel" required />
-          <span class="help-block" *ngIf="passwordConfirmControl.touched && passwordConfirmControl.errors?.required">
-            password confirmation is required
+        <!--employeeCode confirm control-->
+        <div class="form-group" [class.has-error]="codeConfirmControl.touched && codeConfirmControl.invalid">
+          <label for="codeConfirm" class="control-label">Code confirmation</label>
+          <input type="text" id="codeConfirm" class="form-control" name="codeConfirm"
+            [(ngModel)]="employee.codeConfirm" #codeConfirmControl="ngModel" required />
+          <span class="help-block" *ngIf="codeConfirmControl.touched && codeConfirmControl.errors?.required">
+            Employee code is required
           </span>
           <span class="help-block"
-            *ngIf="passwordsControlsGroup.errors?.dontMatches">
-            passwords does not matches
+            *ngIf="codesControlsGroup.errors?.dontMatches">
+            codes dont matches
           </span>
         </div>
       </div>

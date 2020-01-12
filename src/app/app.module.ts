@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ListEmployeesComponent } from './employee/list-employees.component';
 import { CreateEmployeeComponent } from './employee/create-employee.component';
@@ -9,11 +10,14 @@ import { CreateEmployeeComponent } from './employee/create-employee.component';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import {SelectRequiredValidator} from './shared/directives/select-required-validator.directive';
 import {CompareControlsMatchingValidator} from './shared/directives/compare-match-validator.directive';
+import { DisplayEmployeeComponent } from './employee/display-employee.component';
+import {EmployeeService} from '../app/shared/services/employee-handle-service';
+import {CreateEmployeeCanDeactivateGuardServiceService} from '../app/shared/services/create-employee-can-deactivate-guard-service.service';
 
 
 const appRoutes: Routes = [
   {path: 'read' , component: ListEmployeesComponent},
-  {path: 'create' , component: CreateEmployeeComponent},
+  {path: 'create' , component: CreateEmployeeComponent, canDeactivate: [CreateEmployeeCanDeactivateGuardServiceService]},
   {path: '' , redirectTo : '/read', pathMatch : 'full'},
   {path: '**' , redirectTo : '/read', pathMatch : 'full'}
 ];
@@ -24,15 +28,17 @@ const appRoutes: Routes = [
     ListEmployeesComponent,
     CreateEmployeeComponent,
     SelectRequiredValidator,
-    CompareControlsMatchingValidator
+    CompareControlsMatchingValidator,
+    DisplayEmployeeComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
     FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
     BsDatepickerModule.forRoot()
   ],
-  providers: [],
+  providers: [EmployeeService, CreateEmployeeCanDeactivateGuardServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
