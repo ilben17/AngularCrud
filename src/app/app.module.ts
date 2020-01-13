@@ -13,10 +13,12 @@ import {CompareControlsMatchingValidator} from './shared/directives/compare-matc
 import { DisplayEmployeeComponent } from './employee/display-employee.component';
 import {EmployeeService} from '../app/shared/services/employee-handle-service';
 import {CreateEmployeeCanDeactivateGuardServiceService} from '../app/shared/services/create-employee-can-deactivate-guard-service.service';
+import { DisplayEmployeeDetailsComponent } from './employee/display-employee-details.component';
 
 
 const appRoutes: Routes = [
   {path: 'read' , component: ListEmployeesComponent},
+  {path: 'read/:id' , component: DisplayEmployeeDetailsComponent},
   {path: 'create' , component: CreateEmployeeComponent, canDeactivate: [CreateEmployeeCanDeactivateGuardServiceService]},
   {path: '' , redirectTo : '/read', pathMatch : 'full'},
   {path: '**' , redirectTo : '/read', pathMatch : 'full'}
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     CreateEmployeeComponent,
     SelectRequiredValidator,
     CompareControlsMatchingValidator,
-    DisplayEmployeeComponent
+    DisplayEmployeeComponent,
+    DisplayEmployeeDetailsComponent
   ],
   imports: [
     BrowserModule,

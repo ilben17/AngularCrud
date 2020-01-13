@@ -1,9 +1,7 @@
 
-<h4 #templateRefToH1>Click on any employee to see her name</h4>
-<div *ngFor="let employee of employees">
-
-  <div (click)="templateRefToH1.innerHTML = 'Name of employee clicked : ' + templateRefToChildComponent.employeePropFromChildComp.name">
+<h4>Click on any employee to see details</h4>
+<div class="pointerCursor" *ngFor="let employee of employees">
+  <div (click)="showEmployeeDetails(employee.id)">
     <app-display-employee [employeePropFromChildComp]="employee" #templateRefToChildComponent></app-display-employee>
-  </div>
-  
+  </div> 
 </div>

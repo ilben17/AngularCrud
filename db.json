@@ -6,12 +6,12 @@
       "gender": "Male",
       "contactPreference": "Email",
       "email": "mark@pragimtech.com",
-      "dateOfBirth": "",
+      "dateOfBirth": "1985-01-01",
       "department": 1,
       "isActive": true,
       "photoPath": "assets/images/mark.png",
-      "password": null,
-      "passwordConfirm": null
+      "code": 100,
+      "codeConfirm": 100
     },
     {
       "id": 2,
@@ -19,12 +19,12 @@
       "gender": "Female",
       "contactPreference": "Phone",
       "phoneNumber": 2345978640,
-      "dateOfBirth": "",
+      "dateOfBirth": "1995-01-01",
       "department": 2,
       "isActive": true,
       "photoPath": "assets/images/mary.png",
-      "password": null,
-      "passwordConfirm": null
+      "code": 101,
+      "codeConfirm": 101
     },
     {
       "id": 3,
@@ -32,40 +32,26 @@
       "gender": "Male",
       "contactPreference": "Phone",
       "phoneNumber": 5432978640,
-      "dateOfBirth": "",
+      "dateOfBirth": "1965-01-01",
       "department": 1,
       "isActive": false,
       "photoPath": "assets/images/john.png",
-      "password": null,
-      "passwordConfirm": null
+      "code": 102,
+      "codeConfirm": 102
     },
     {
       "id": 4,
-      "name": "farid",
+      "name": "alias",
       "gender": "male",
-      "email": "farid@gmail.com",
-      "phoneNumber": "0000000101",
-      "contactPreference": "email",
-      "dateOfBirth": "2019-12-08T05:00:00.000Z",
-      "department": "2",
-      "isActive": false,
-      "photoPath": "../../assets/images/default.png",
-      "code": "100",
-      "codeConfirm": "100"
-    },
-    {
-      "id": 5,
-      "name": "test",
-      "gender": "Female",
-      "email": "",
-      "phoneNumber": "4000",
+      "email": "100@gmail.com",
+      "phoneNumber": "10010010",
       "contactPreference": "phone",
       "dateOfBirth": "2019-12-08T05:00:00.000Z",
-      "department": "2",
+      "department": "1",
       "isActive": true,
       "photoPath": "../../assets/images/default.png",
-      "code": "400",
-      "codeConfirm": "400"
+      "code": "1000",
+      "codeConfirm": "1000"
     }
   ]
 }

@@ -9,6 +9,6 @@ export class Employee {
     department: string;
     isActive: boolean;
     photoPath?: string;
-    code: string;
-    codeConfirm: string;
+    code: number;
+    codeConfirm: number;
 }
